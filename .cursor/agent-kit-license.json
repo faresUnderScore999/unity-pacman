@@ -1,0 +1,16 @@
+{
+  "plan": "free",
+  "platforms": [
+    "universal",
+    "unity"
+  ],
+  "installedPacks": [
+    "core",
+    "unity-runtime",
+    "pke"
+  ],
+  "initSource": "offline-free-bundle",
+  "appliedAt": "2026-10-12T11:02:07.887Z",
+  "updatedAt": "2026-10-12T11:02:07.887Z",
+  "note": "Free offline init. Optional: set key+licenseApi later for Pro packs."
+}

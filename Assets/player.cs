@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 15f;
     public float gravity = -9.81f;
 
+    [Header("Game Stats")]
+    public int score = 0;
+
     private CharacterController controller;
     private InputAction moveAction;
     private Vector2 movementInput;
@@ -30,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
         {
             moveAction = inputActionsAsset.FindAction("moves");
         }
+    }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void OnEnable()
@@ -56,13 +65,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Fallback if Camera.main isn't tagged correctly
         if (cameraTransform == null && Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
         }
 
-        // 1. Calculate camera-relative movement direction
         Vector3 moveDir = Vector3.zero;
         if (cameraTransform != null)
         {
@@ -81,10 +88,9 @@ public class PlayerMovement : MonoBehaviour
             moveDir = new Vector3(movementInput.x, 0f, movementInput.y);
         }
 
-        // 2. Handle Gravity
         if (controller.isGrounded)
         {
-            verticalVelocity = -0.5f; // Keeps the character grounded
+            verticalVelocity = -0.5f;
         }
         else
         {
@@ -94,14 +100,18 @@ public class PlayerMovement : MonoBehaviour
         Vector3 velocity = moveDir * moveSpeed;
         velocity.y = verticalVelocity;
 
-        // 3. Move the CharacterController
         controller.Move(velocity * Time.deltaTime);
 
-        // 4. Rotate smoothly toward movement direction
         if (moveDir.sqrMagnitude > 0.01f)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        Debug.Log("Score: " + score);
     }
 }

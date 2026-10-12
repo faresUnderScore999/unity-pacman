@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "com.unity.ads": "4.19.0",
+    "com.unity.ai.assistant": "2.20.0-pre.2",
+    "com.unity.ai.inference": "2.6.1",
     "com.unity.ai.navigation": "2.0.14",
     "com.unity.analytics": "3.8.2",
     "com.unity.cinemachine": "6.6.0",

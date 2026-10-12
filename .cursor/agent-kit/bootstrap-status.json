@@ -1,0 +1,13 @@
+{
+  "bootstrappedAt": "2026-10-12T11:02:07.887Z",
+  "mode": "free-offline",
+  "hosts": [
+    "cursor"
+  ],
+  "packs": [
+    "core",
+    "unity-runtime",
+    "pke"
+  ],
+  "next": "Reload MCP in Cursor / Claude Code"
+}

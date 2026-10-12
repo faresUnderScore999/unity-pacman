@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "agent-kit-client": {
+      "command": "node",
+      "args": [
+        "/home/yamaha/paccman/.cursor/agent-kit/mcp/agent-kit-client/index.mjs"
+      ],
+      "env": {
+        "AGENT_PROJECT_ROOT": "${workspaceFolder}"
+      }
+    },
+    "unity-agent": {
+      "command": "node",
+      "args": [
+        "/home/yamaha/paccman/.cursor/agent-kit/mcp/unity-agent-mcp/index.mjs"
+      ],
+      "env": {
+        "AGENT_PROJECT_ROOT": "${workspaceFolder}"
+      }
+    }
+  }
+}
